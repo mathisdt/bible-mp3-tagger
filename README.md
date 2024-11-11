@@ -12,7 +12,8 @@ The script needs a parameter: the directory holding your MP3 bibles.
 Inside this directory (`ROOT` below), the following structure is expected
 (either one MP3 per book or per chapter, either way is fine).
 The ["natural" order](https://pypi.org/project/natsort/#quick-description)
-is used, so if numbers aren't zero-padded, it doesn't hurt.
+is used, so if numbers aren't zero-padded, it doesn't hurt. Also if the numbering
+doesn't start at 1 or has a different number of digits, the script still works.
 
 ```
 ROOT
