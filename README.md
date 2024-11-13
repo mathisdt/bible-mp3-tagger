@@ -41,3 +41,15 @@ ROOT
       - ... (more books)
   - ... (more bibles)
 ```
+
+## Further possibilities
+
+If you want to collect the MP3 files after adding the appropriate ID3 tags,
+you can use the following shell command (put an `echo` before the `mv` to test it):
+
+```
+find . -name '*.mp3' | while read file; do \
+  newfile=$(echo "$file" | sed -e 's#^\(./[^/]\+/[^/]\+/[^/]\+\)/\([^/]\+.mp3\)$#\1_\2#'); \
+  mv -v "$file" "$newfile"; \
+done
+```

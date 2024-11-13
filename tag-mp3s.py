@@ -2,7 +2,7 @@ import os
 import re
 import sys
 
-from mutagen.id3 import ID3, TIT2, TRCK, TALB, TPE1, Encoding
+from mutagen.id3 import ID3, TIT2, TRCK, TPOS, TALB, TPE1, Encoding
 from mutagen.mp3 import MP3
 from natsort import natsorted
 
@@ -125,6 +125,7 @@ for bible in bibles:
                 id3.add(TALB(text=f"Bibel - {bible_name} - {bible_part_name}", encoding=Encoding.UTF8))
                 id3.add(TIT2(text=f"{bookname(bible_part_name, book_index)}", encoding=Encoding.UTF8))
                 id3.add(TRCK(text=f"{track_number}", encoding=Encoding.UTF8))
+                id3.add(TPOS(text="1/1", encoding=Encoding.UTF8))
                 mp3.tags = id3
                 mp3.save()
                 book_index += 1
@@ -147,6 +148,7 @@ for bible in bibles:
                     id3.add(TIT2(text=f"{bookname(bible_part_name, book_index, True)} {chapter_number}",
                                  encoding=Encoding.UTF8))
                     id3.add(TRCK(text=f"{track_number}", encoding=Encoding.UTF8))
+                    id3.add(TPOS(text="1/1", encoding=Encoding.UTF8))
                     mp3.tags = id3
                     mp3.save()
                     chapter_number += 1
