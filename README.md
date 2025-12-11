@@ -53,3 +53,8 @@ find . -name '*.mp3' | while read file; do \
   mv -v "$file" "$newfile"; \
 done
 ```
+
+## License
+
+This project is licensed under GPL v3. If you submit or contribute changes, these are automatically licensed
+under GPL v3 as well. If you don't want that, please don't submit the contribution (e.g. pull request)!
